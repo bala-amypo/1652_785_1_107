@@ -7,4 +7,8 @@ public class UserServiceImpl implements UserService {
     public UserEntity saveuser(UserEntity user){
         return users.save(user);
     }
+    @Override
+    public List<UserEntity>getAlldata(){
+        return users.findAll();
+    }
 }
