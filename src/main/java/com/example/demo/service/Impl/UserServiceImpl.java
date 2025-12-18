@@ -11,4 +11,9 @@ public class UserServiceImpl implements UserService {
     public List<UserEntity>getAlldata(){
         return users.findAll();
     }
+    @Override
+    public String Deletedata(int id){
+        users.deleteById(id);
+        return "D"
+    }
 }
