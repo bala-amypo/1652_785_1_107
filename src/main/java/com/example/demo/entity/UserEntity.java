@@ -9,7 +9,7 @@ import jakarta.persistence.Id;
 @Entity
 public class UserEntity {
     @Id
-    @GeneratedValue(Stre)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
     private String username;
     private String email;
