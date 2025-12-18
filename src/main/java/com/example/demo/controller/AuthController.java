@@ -1,4 +1,8 @@
 package com.example.demo.controller;
+
+
+import java.util.List;
+
 @RestController
 public class AuthController {
     
@@ -21,5 +25,7 @@ public class AuthController {
         return service.getdata(id);
     }
     @putMapping("/put/{id}")
-    public UserEntity putdata(@PathVariable int id,@RequestBody UserEntity)
+    public UserEntity putdata(@PathVariable int id,@RequestBody UserEntity entity){
+        return service.update(id,entity);
+    }
 }
