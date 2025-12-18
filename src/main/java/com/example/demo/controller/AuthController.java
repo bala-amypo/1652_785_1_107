@@ -8,5 +8,10 @@ public class AuthController {
     public UserEntity senddata(@RequestBody UserEntity e){
         return service.saveuser(e);
     }
-    @Get
+    @GetMapping("/get")
+    public List<UserEntity> getvalue(){
+        return service.getAlldata();
+    }
+    @DeleteMapping("/delete/{id}")
+    public String deletevalue()
 }
