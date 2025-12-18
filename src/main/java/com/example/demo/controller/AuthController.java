@@ -20,5 +20,6 @@ public class AuthController {
     public UserEntity finddata(@PathVariable int id){
         return service.getdata(id);
     }
-    @putMapping
+    @putMapping("/put/{id}")
+    public UserEntity putdata(@PathVariable int id,@RequestBody UserEntity)
 }
