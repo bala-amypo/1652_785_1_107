@@ -13,5 +13,12 @@ public class AuthController {
         return service.getAlldata();
     }
     @DeleteMapping("/delete/{id}")
-    public String deletevalue()
+    public String deletevalue(@PathVariable int id){
+        return service.Deletedata(id);
+    }
+    @GetMapping("/find/{id}")
+    public UserEntity finddata(@PathVariable int id){
+        return service.getdata(id);
+    }
+    @putMapping
 }
