@@ -14,6 +14,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public String Deletedata(int id){
         users.deleteById(id);
-        return "D"
+        return "Delete Successfully";
+    }
+    @Override
+    public UserEntity getdata(int id){
+        return users.findById()
     }
 }

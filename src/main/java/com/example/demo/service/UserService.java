@@ -6,6 +6,7 @@ public interface UserService {
        UserEntity saveuser(@RequestBody UserEntity user);
        List<UserEntity>getAlldata();
        String Deletedata(int d);
+       UserEntity getdata(int d);
 
       
 }
