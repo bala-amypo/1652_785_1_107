@@ -22,6 +22,11 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public UserEntity update(int id,StudentEntity entity){
-        return users.
+        if(users.existsById(id)){
+         entity.setId(id);
+         return users.save(entity);
+
+        }
+        return null;
     }
 }
