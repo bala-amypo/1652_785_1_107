@@ -18,6 +18,10 @@ public class UserServiceImpl implements UserService {
     }
     @Override
     public UserEntity getdata(int id){
-        return users.findById()
+        return users.findById(id);
+    }
+    @Override
+    public UserEntity update(int id,StudentEntity entity){
+        return users.
     }
 }

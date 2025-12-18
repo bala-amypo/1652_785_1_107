@@ -7,6 +7,7 @@ public interface UserService {
        List<UserEntity>getAlldata();
        String Deletedata(int d);
        UserEntity getdata(int d);
+       UserEntity update(int id,StudentEntity entity);
 
       
 }
