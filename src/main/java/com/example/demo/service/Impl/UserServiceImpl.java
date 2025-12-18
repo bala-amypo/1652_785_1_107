@@ -1,5 +1,10 @@
 package com.example.demo.service.Impl;
 
+import org.springframework.stereotype.Service;
+import com.example.demo.service.UserService;
+import com.example.demo.entity.UserEntity;
+import com.example.demo.repository.UserRepository;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -23,7 +28,7 @@ public class UserServiceImpl implements UserService {
         return users.findById(id);
     }
     @Override
-    public UserEntity update(int id,StudentEntity entity){
+    public UserEntity update(int id,UserEntity entity){
         if(users.existsById(id)){
          entity.setId(id);
          return users.save(entity);
