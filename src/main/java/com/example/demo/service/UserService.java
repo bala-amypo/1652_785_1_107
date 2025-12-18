@@ -1,8 +1,8 @@
 package com.example.demo.service;
 
-@Service
-public class UserService {
-       UserEntity saveuser(UserEntity user);
+
+public interface UserService {
+       UserEntity saveuser(@RequestBody UserEntity user);
 
       
 }
