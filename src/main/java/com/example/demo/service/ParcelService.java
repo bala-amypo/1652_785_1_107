@@ -15,7 +15,7 @@ public interface ParcelService {
        List<ParcelEntity>getparceldata();
        String Deleteparcel( Long id);
        ParcelEntity parceldata( Long id);
-       ParcelEntity post(int id,ParcelEntity entity);
+       ParcelEntity post(int id,ParcelEntity parcel);
 
       
 }

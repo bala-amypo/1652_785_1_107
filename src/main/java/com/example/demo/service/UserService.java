@@ -15,7 +15,7 @@ public interface UserService {
        List<UserEntity>getAlldata();
        String Deletedata( Long id);
        UserEntity getdata( Long id);
-       UserEntity update(int id,StudentEntity entity);
+       UserEntity update(Long id,UserEntity entity);
 
       
 }
