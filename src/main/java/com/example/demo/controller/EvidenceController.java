@@ -17,20 +17,20 @@ public class EvidenceController {
     @Autowired EvidenceService es;
 
     @PostMapping("/postev")
-    public EvidenceEntity sendparcel(@RequestBody EvidenceEntity evidence){
+    public EvidenceEntity sendevidence(@RequestBody EvidenceEntity evidence){
         return es.saveuser(evidence);
     }
     @GetMapping("/getev")
-    public List<Entity> getvalue(){
-        return ps.getparceldata();
+    public List<EvidenceEntity> getvalue(){
+        return ps.getevidencedata();
     }
     @DeleteMapping("/deleteev/{id}")
     public String deletevalue(@PathVariable Long id){
-        return ps.Deleteparcel(id);
+        return ps.Deleteevidence(id);
     }
     @GetMapping("/foundev/{id}")
     public ParcelEntity finddata(@PathVariable Long id){
-        return ps.parceldata(id);
+        return ps.evidencedata(id);
     }
     @putMapping("/putev/{id}")
     public UserEntity putdata(@PathVariable Long id,@RequestBody ParcelEntity entity){
