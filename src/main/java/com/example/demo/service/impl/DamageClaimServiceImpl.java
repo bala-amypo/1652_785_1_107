@@ -40,8 +40,8 @@ public class DamageClaimServiceImpl implements DamageClaimService {
                 .orElseThrow(() -> new ResourceNotFoundException("Claim not found"));
 
         
-        claim.setScore(0.0); // Default score since no evaluation
-        claim.setStatus("PENDING"); // Default status
+        claim.setScore(0.0); 
+        claim.setStatus("PENDING"); 
 
         return claimRepository.save(claim);
     }
