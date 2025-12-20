@@ -29,11 +29,11 @@ public class EvidenceController {
         return ps.Deleteevidence(id);
     }
     @GetMapping("/foundev/{id}")
-    public ParcelEntity finddata(@PathVariable Long id){
+    public EvidenceEntity finddata(@PathVariable Long id){
         return ps.evidencedata(id);
     }
     @putMapping("/putev/{id}")
-    public UserEntity putdata(@PathVariable Long id,@RequestBody ParcelEntity entity){
-        return ps.post(id,entity);
+    public EvidenceEntity putdata(@PathVariable Long id,@RequestBody ParcelEntity evidenceentity ){
+        return ps.postevidence(id,evidenceentity);
     }
 }

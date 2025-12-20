@@ -33,7 +33,7 @@ public class AuthController {
         return ps.parceldata(id);
     }
     @putMapping("/p/{id}")
-    public UserEntity putdata(@PathVariable Long id,@RequestBody ParcelEntity entity){
+    public ParcelEntity putdata(@PathVariable Long id,@RequestBody ParcelEntity entity){
         return ps.post(id,entity);
     }
 }
