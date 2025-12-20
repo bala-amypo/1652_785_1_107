@@ -23,7 +23,7 @@ public class EvidenceServiceImpl implements EvidenceService {
 
     @Override
     public Evidence uploadEvidence(Long claimId, Evidence evidence) {
-        DamageClaim claim = claimRepository.findById(claimId)
+        DamageClaimEnity claim = claimRepository.findById(claimId)
                 .orElseThrow(() -> new ResourceNotFoundException("Claim not found"));
 
         evidence.setClaim(claim);
@@ -31,7 +31,7 @@ public class EvidenceServiceImpl implements EvidenceService {
     }
 
     @Override
-    public List<Evidence> getEvidenceForClaim(Long claimId) {
+    public List<EvidenceEntity> getEvidenceForClaim(Long claimId) {
         return evidenceRepository.findByClaim_Id(claimId);
     }
 }
