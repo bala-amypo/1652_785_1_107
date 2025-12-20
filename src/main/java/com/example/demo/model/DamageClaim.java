@@ -9,6 +9,8 @@ import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import java.util.Set;
+import jakarta.persistence.*;
+
 
 @Entity
 @Data
