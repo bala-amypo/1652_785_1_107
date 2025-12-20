@@ -1,10 +1,10 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.UserEntity;
+import com.example.demo.model.User;
 
 public interface UserService {
 
-    UserEntity register(UserEntity user);
+    User register(User user);
 
-    UserEntity findByEmail(String email);
+    User findByEmail(String email);
 }
