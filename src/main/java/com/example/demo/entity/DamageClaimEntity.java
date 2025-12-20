@@ -1,44 +1,44 @@
-package com.example.demo.entity;
+// package com.example.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import java.time.LocalDateTime;
-import java.util.Set;
+// import jakarta.persistence.Entity;
+// import jakarta.persistence.GeneratedValue;
+// import jakarta.persistence.GenerationType;
+// import jakarta.persistence.Id;
+// import lombok.Data;
+// import lombok.AllArgsConstructor;
+// import lombok.NoArgsConstructor;
+// import java.time.LocalDateTime;
+// import java.util.Set;
 
-@Entity
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-public class DamageClaimEntity {
+// @Entity
+// @Data
+// @AllArgsConstructor
+// @NoArgsConstructor
+// public class DamageClaimEntity {
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//     @Id
+//     @GeneratedValue(strategy = GenerationType.IDENTITY)
+//     private Long id;
 
-    @ManyToOne
-    private Parcel parcel;
+//     @ManyToOne
+//     private Parcel parcel;
 
-    private String claimDescription;
+//     private String claimDescription;
 
-    private LocalDateTime filedAt;
+//     private LocalDateTime filedAt;
 
-    private String status = "PENDING";
+//     private String status = "PENDING";
 
-    private Double score;
+//     private Double score;
 
-    @ManyToMany
-    private Set<ClaimRule> appliedRules;
+//     @ManyToMany
+//     private Set<ClaimRule> appliedRules;
 
-    @PrePersist
-    public void onCreate() {
-        this.filedAt = LocalDateTime.now();
-    }
+//     @PrePersist
+//     public void onCreate() {
+//         this.filedAt = LocalDateTime.now();
+//     }
 
 
 
-}
+// }
