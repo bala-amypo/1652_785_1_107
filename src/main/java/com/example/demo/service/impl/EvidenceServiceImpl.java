@@ -8,13 +8,13 @@ import com.example.demo.repository.EvidenceRepository;
 import com.example.demo.service.EvidenceService;
 
 import java.util.List;
-
+@Service
 public class EvidenceServiceImpl implements EvidenceService {
 
     private final EvidenceRepository evidenceRepository;
     private final DamageClaimRepository claimRepository;
 
-    // REQUIRED constructor
+    
     public EvidenceServiceImpl(EvidenceRepository evidenceRepository,
                                DamageClaimRepository claimRepository) {
         this.evidenceRepository = evidenceRepository;
