@@ -1,31 +1,36 @@
-// package com.example.demo.service.Impl;
+package com.example.demo.service.impl;
 
-// import com.example.demo.exception.BadRequestException;
-// import com.example.demo.entity.ClaimRuleEntity;
-// import com.example.demo.repository.ClaimRuleRepository;
-// import com.example.demo.service.ClaimRuleService;
+import com.example.demo.exception.BadRequestException;
+import com.example.demo.model.ClaimRule;
+import com.example.demo.repository.ClaimRuleRepository;
+import com.example.demo.service.ClaimRuleService;
+import org.springframework.stereotype.Service;
 
-// import java.util.List;
+import java.util.List;
 
-// public class ClaimRuleServiceImpl implements ClaimRuleService {
+@Service
+public class ClaimRuleServiceImpl implements ClaimRuleService {
 
-//     private final ClaimRuleRepository ruleRepository;
+    private final ClaimRuleRepository ruleRepository;
 
-    
-//     public ClaimRuleServiceImpl(ClaimRuleRepository ruleRepository) {
-//         this.ruleRepository = ruleRepository;
-//     }
+    // REQUIRED constructor
+    public ClaimRuleServiceImpl(ClaimRuleRepository ruleRepository) {
+        this.ruleRepository = ruleRepository;
+    }
 
-//     @Override
-//     public ClaimRuleEntity addRule(ClaimRuleEntity rule) {
-//         if (rule.getWeight() == null || rule.getWeight() < 0) {
-//             throw new BadRequestException("weight must be >= 0");
-//         }
-//         return ruleRepository.save(rule);
-//     }
+    @Override
+    public ClaimRule addRule(ClaimRule rule) {
 
-//     @Override
-//     public List<ClaimRuleEntity> getAllRules() {
-//         return ruleRepository.findAll();
-//     }
-// }
+        if (rule.getWeight() == null || rule.getWeight() < 0) {
+            // message must contain "weight"
+            throw new BadRequestException("weight must be greater than or equal to zero");
+        }
+
+        return ruleRepository.save(rule);
+    }
+
+    @Override
+    public List<ClaimRule> getAllRules() {
+        return ruleRepository.findAll();
+    }
+}

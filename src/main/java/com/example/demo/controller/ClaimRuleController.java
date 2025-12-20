@@ -1,28 +1,30 @@
-// package com.example.demo.controller;
+package com.example.demo.controller;
 
-// import com.example.demo.model.ClaimRule;
-// import com.example.demo.service.ClaimRuleService;
-// import org.springframework.web.bind.annotation.*;
+import com.example.demo.model.ClaimRule;
+import com.example.demo.service.ClaimRuleService;
+import org.springframework.web.bind.annotation.*;
 
-// import java.util.List;
+import java.util.List;
 
-// @RestController
-// @RequestMapping("/rules")
-// public class ClaimRuleController {
+@RestController
+@RequestMapping("/rules")
+public class ClaimRuleController {
 
-//     private final ClaimRuleService ruleService;
+    private final ClaimRuleService ruleService;
 
-//     public ClaimRuleController(ClaimRuleService ruleService) {
-//         this.ruleService = ruleService;
-//     }
+    public ClaimRuleController(ClaimRuleService ruleService) {
+        this.ruleService = ruleService;
+    }
 
-//     @PostMapping
-//     public ClaimRule addRule(@RequestBody ClaimRule rule) {
-//         return ruleService.addRule(rule);
-//     }
+    
+    @PostMapping
+    public ClaimRule addRule(@RequestBody ClaimRule rule) {
+        return ruleService.addRule(rule);
+    }
 
-//     @GetMapping
-//     public List<ClaimRule> getAllRules() {
-//         return ruleService.getAllRules();
-//     }
-// }
+    
+    @GetMapping
+    public List<ClaimRule> getAllRules() {
+        return ruleService.getAllRules();
+    }
+}
