@@ -16,8 +16,8 @@ public class ParcelEntity {
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
-    private String username;
-    private String email;
+    private String trackingNumber;
+    private String senderName;
     private String password;
     private String role;
 }
