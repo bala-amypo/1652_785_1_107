@@ -12,27 +12,27 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 
 
 @RestController
-public class Controller {
+public class EvidenceController {
     
-    @Autowired ParcelService ps;
+    @Autowired EvidenceService es;
 
-    @PostMapping("/pm")
-    public UserEntity sendparcel(@RequestBody ParcelEntity e){
-        return ps.saveuser(e);
+    @PostMapping("/postev")
+    public EvidenceEntity sendparcel(@RequestBody EvidenceEntity evidence){
+        return es.saveuser(evidence);
     }
-    @GetMapping("/ge")
-    public List<ParcelEntity> getvalue(){
+    @GetMapping("/getev")
+    public List<Entity> getvalue(){
         return ps.getparceldata();
     }
-    @DeleteMapping("/del/{id}")
+    @DeleteMapping("/deleteev/{id}")
     public String deletevalue(@PathVariable Long id){
         return ps.Deleteparcel(id);
     }
-    @GetMapping("/found/{id}")
+    @GetMapping("/foundev/{id}")
     public ParcelEntity finddata(@PathVariable Long id){
         return ps.parceldata(id);
     }
-    @putMapping("/p/{id}")
+    @putMapping("/putev/{id}")
     public UserEntity putdata(@PathVariable Long id,@RequestBody ParcelEntity entity){
         return ps.post(id,entity);
     }

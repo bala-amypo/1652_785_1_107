@@ -17,7 +17,7 @@ public class AuthController {
     @Autowired ParcelService ps;
 
     @PostMapping("/pm")
-    public UserEntity sendparcel(@RequestBody ParcelEntity e){
+    public parcelEntity sendparcel(@RequestBody ParcelEntity e){
         return ps.saveuser(e);
     }
     @GetMapping("/ge")
