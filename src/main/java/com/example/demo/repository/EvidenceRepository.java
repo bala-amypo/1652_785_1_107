@@ -1,6 +1,9 @@
 package com.example.demo.repository;
 
-public interface EvidenceRepository extends JpaRepository<Evidence, Long> {
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.demo.repository.EvidenceEntity;
+
+public interface EvidenceRepository extends JpaRepository<EvidenceEntity, Long> {
     long countByClaim_Id(Long claimId);
     List<Evidence> findByClaim_Id(Long claimId);
 }

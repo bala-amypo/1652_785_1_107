@@ -1,5 +1,8 @@
 package com.example.demo.repositoty;
 
-public interface ClaimRuleRepository extends JpaRepository<ClaimRule, Long> {
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.example.demo.repository.UserRepository;
+
+public interface ClaimRuleRepository extends JpaRepository<ClaimRuleEntity, Long> {
     List<ClaimRule> findAll();
 }
