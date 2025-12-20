@@ -22,7 +22,7 @@ public class DamageClaimServiceImpl implements DamageClaimService {
     private final DamageClaimRepository claimRepository;
     private final ClaimRuleRepository ruleRepository;
 
-    // REQUIRED constructor
+    
     public DamageClaimServiceImpl(ParcelRepository parcelRepository,
                                   DamageClaimRepository claimRepository,
                                   ClaimRuleRepository ruleRepository) {
