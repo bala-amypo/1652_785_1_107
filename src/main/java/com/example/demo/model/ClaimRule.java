@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstrutor
 @NoArgsConstructor
-public class ClaimRuleEntity {
+public class ClaimRule {
     
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
