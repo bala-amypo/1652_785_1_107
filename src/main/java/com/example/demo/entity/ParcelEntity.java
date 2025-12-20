@@ -18,6 +18,7 @@ public class ParcelEntity {
     private Integer id;
     private String trackingNumber;
     private String senderName;
-    private String password;
-    private String role;
+    private String receiverName;
+    private Double weightKg;
+    private LocalDateTime deliveredAt;
 }
