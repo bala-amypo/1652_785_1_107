@@ -20,8 +20,9 @@ public class DamageClaimEntity {
     private Long id;
     private String parcel;
     private String claimDescription;
-    private String receiverName;
-    private Double weightKg;
-    private LocalDateTime deliveredAt;
+    private LocalDateTime filedAt;
+    private String status;
+    private Double score ;
+    
 
 }
