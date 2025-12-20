@@ -1,37 +1,41 @@
-// package com.example.demo.service.Impl;
+package com.example.demo.service.impl;
 
-// import com.example.demo.exception.ResourceNotFoundException;
-// import com.example.demo.entity.DamageClaimEntity;
-// import com.example.demo.entity.EvidenceEntity;
-// import com.example.demo.repository.DamageClaimRepository;
-// import com.example.demo.repository.EvidenceRepository;
-// import com.example.demo.service.EvidenceService;
+import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.model.DamageClaim;
+import com.example.demo.model.Evidence;
+import com.example.demo.repository.DamageClaimRepository;
+import com.example.demo.repository.EvidenceRepository;
+import com.example.demo.service.EvidenceService;
+import org.springframework.stereotype.Service;
 
-// import java.util.List;
+import java.util.List;
 
-// public class EvidenceServiceImpl implements EvidenceService {
+@Service
+public class EvidenceServiceImpl implements EvidenceService {
 
-//     private final EvidenceRepository evidenceRepository;
-//     private final DamageClaimRepository claimRepository;
+    private final EvidenceRepository evidenceRepository;
+    private final DamageClaimRepository claimRepository;
 
-    
-//     public EvidenceServiceImpl(EvidenceRepository evidenceRepository,
-//                                DamageClaimRepository claimRepository) {
-//         this.evidenceRepository = evidenceRepository;
-//         this.claimRepository = claimRepository;
-//     }
+    public EvidenceServiceImpl(EvidenceRepository evidenceRepository,
+                               DamageClaimRepository claimRepository) {
+        this.evidenceRepository = evidenceRepository;
+        this.claimRepository = claimRepository;
+    }
 
-//     @Override
-//     public Evidence uploadEvidence(Long claimId, Evidence evidence) {
-//         DamageClaimEnity claim = claimRepository.findById(claimId)
-//                 .orElseThrow(() -> new ResourceNotFoundException("Claim not found"));
+    @Override
+    public Evidence uploadEvidence(Long claimId, Evidence evidence) {
+        DamageClaim claim = claimRepository.findById(claimId)
+                .orElseThrow(() -> new ResourceNotFoundException("Claim not found"));
 
-//         evidence.setClaim(claim);
-//         return evidenceRepository.save(evidence);
-//     }
+        evidence.setClaim(claim);
+        return evidenceRepository.save(evidence);
+    }
 
-//     @Override
-//     public List<EvidenceEntity> getEvidenceForClaim(Long claimId) {
-//         return evidenceRepository.findByClaim_Id(claimId);
-//     }
-// }
+    @Override
+    public List<Evidence> getEvidenceForClaim(Long claimId) {
+        if (!claimRepository.existsById(claimId)) {
+            throw new ResourceNotFoundException("Claim not found");
+        }
+        return evidenceRepository.findByClaim_Id(claimId);
+    }
+}

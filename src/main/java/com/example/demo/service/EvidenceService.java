@@ -1,9 +1,12 @@
-// package com.example.demo.service;
+package com.example.demo.service;
 
-// import com.example.demo.entity.EvidenceEntity;
-// import java.util.List;
+import com.example.demo.model.Evidence;
 
-// public interface EvidenceService {
-//     EvidenceEntity uploadEvidence(Long claimId, EvidenceEntity evidence);
-//     List<EvidenceEntity> getEvidenceForClaim(Long claimId);
-// }
+import java.util.List;
+
+public interface EvidenceService {
+
+    Evidence uploadEvidence(Long claimId, Evidence evidence);
+
+    List<Evidence> getEvidenceForClaim(Long claimId);
+}
