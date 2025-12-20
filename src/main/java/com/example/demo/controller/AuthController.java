@@ -1,39 +1,53 @@
 package com.example.demo.controller;
 
-
-import java.util.List;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-
+import com.example.demo.dto.AuthRequest;
+import com.example.demo.dto.AuthResponse;
+import com.example.demo.model.User;
+import com.example.demo.security.JwtUtil;
+import com.example.demo.service.UserService;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
+@RequestMapping("/auth")
 public class AuthController {
-    
-    @Autowired UserService service;
 
-    @PostMapping("/post")
-    public UserEntity senddata(@RequestBody UserEntity e){
-        return service.saveuser(e);
+    private final UserService userService;
+    private final JwtUtil jwtUtil;
+    private final PasswordEncoder passwordEncoder;
+
+    public AuthController(UserService userService,
+                          JwtUtil jwtUtil,
+                          PasswordEncoder passwordEncoder) {
+        this.userService = userService;
+        this.jwtUtil = jwtUtil;
+        this.passwordEncoder = passwordEncoder;
     }
-    @GetMapping("/get")
-    public List<UserEntity> getvalue(){
-        return service.getAlldata();
+
+    @PostMapping("/register")
+    public User register(@RequestBody User user) {
+        return userService.register(user);
     }
-    @DeleteMapping("/delete/{id}")
-    public String deletevalue(@PathVariable Long id){
-        return service.Deletedata(id);
-    }
-    @GetMapping("/find/{id}")
-    public UserEntity finddata(@PathVariable Long id){
-        return service.getdata(id);
-    }
-    @putMapping("/put/{id}")
-    public UserEntity putdata(@PathVariable Long id,@RequestBody UserEntity entity){
-        return service.update(id,entity);
+
+    @PostMapping("/login")
+    public AuthResponse login(@RequestBody AuthRequest request) {
+        User user = userService.findByEmail(request.getEmail());
+
+        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+            throw new RuntimeException("Invalid credentials");
+        }
+
+        String token = jwtUtil.generateToken(
+                user.getId(),
+                user.getEmail(),
+                user.getRole()
+        );
+
+        return new AuthResponse(
+                token,
+                user.getId(),
+                user.getEmail(),
+                user.getRole()
+        );
     }
 }
