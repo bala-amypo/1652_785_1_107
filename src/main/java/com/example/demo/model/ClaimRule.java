@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@AllArgsConstrutor
+@AllArgsConstructor
 @NoArgsConstructor
 public class ClaimRule {
     
@@ -18,8 +18,14 @@ public class ClaimRule {
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long id;
 
+
     private String ruleName;
+
     private String conditionExpression;
+
     private Double weight;
+
+    @ManyToMany(mappedBy = "appliedRules")
+    private Set<DamageClaim> claims;
 
 }
