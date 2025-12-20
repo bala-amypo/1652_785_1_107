@@ -17,23 +17,23 @@ public class AuthController {
     @Autowired ParcelService ps;
 
     @PostMapping("/pm")
-    public UserEntity sendparcel(@RequestBody UserEntity e){
-        return service.saveuser(e);
+    public UserEntity sendparcel(@RequestBody ParcelEntity e){
+        return ps.saveuser(e);
     }
     @GetMapping("/ge")
     public List<ParcelEntity> getvalue(){
-        return service.getparceldata();
+        return ps.getparceldata();
     }
-    @DeleteMapping("/delete/{id}")
+    @DeleteMapping("/del/{id}")
     public String deletevalue(@PathVariable Long id){
-        return service.Deleteparceldata(id);
+        return ps.Deleteparcel(id);
     }
-    @GetMapping("/find/{id}")
-    public UserEntity finddata(@PathVariable int id){
-        return service.getdata(id);
+    @GetMapping("/found/{id}")
+    public ParcelEntity finddata(@PathVariable Long id){
+        return ps.parceldata(id);
     }
-    @putMapping("/put/{id}")
-    public UserEntity putdata(@PathVariable int id,@RequestBody UserEntity entity){
-        return service.update(id,entity);
+    @putMapping("/p/{id}")
+    public UserEntity putdata(@PathVariable Long id,@RequestBody ParcelEntity entity){
+        return ps.post(id,entity);
     }
 }
