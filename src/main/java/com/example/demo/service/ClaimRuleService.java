@@ -1,9 +1,12 @@
-// package com.example.demo.service;
+package com.example.demo.service;
 
-// import com.example.demo.entity.ClaimRuleEntity;
-// import java.util.List;
+import com.example.demo.model.ClaimRule;
 
-// public interface ClaimRuleService {
-//     ClaimRuleEntity addRule(ClaimRule rule);
-//     List<ClaimRuleEnity> getAllRules();
-// }
+import java.util.List;
+
+public interface ClaimRuleService {
+
+    ClaimRule addRule(ClaimRule rule);
+
+    List<ClaimRule> getAllRules();
+}
