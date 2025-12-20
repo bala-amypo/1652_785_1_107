@@ -1,10 +1,9 @@
 package com.example.demo.service.Impl;
 
-import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.model.*;
-import com.example.demo.repository.*;
-import com.example.demo.service.DamageClaimService;
-import com.example.demo.util.RuleEngineUtil;
+import org.springframework.stereotype.Service;
+import com.example.demo.service.UserService;
+import com.example.demo.entity.UserEntity;
+import com.example.demo.repository.UserRepository;
 
 import java.util.HashSet;
 import java.util.List;
