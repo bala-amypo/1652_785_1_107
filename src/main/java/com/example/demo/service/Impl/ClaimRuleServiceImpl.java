@@ -17,7 +17,7 @@ public class ClaimRuleServiceImpl implements ClaimRuleService {
     }
 
     @Override
-    public ClaimRule addRule(ClaimRule rule) {
+    public ClaimRuleEntity addRule(ClaimRuleEntity rule) {
         if (rule.getWeight() == null || rule.getWeight() < 0) {
             throw new BadRequestException("weight must be >= 0");
         }
@@ -25,7 +25,7 @@ public class ClaimRuleServiceImpl implements ClaimRuleService {
     }
 
     @Override
-    public List<ClaimRule> getAllRules() {
+    public List<ClaimRuleEntity> getAllRules() {
         return ruleRepository.findAll();
     }
 }
