@@ -1,20 +1,10 @@
-// package com.example.demo.service;
+package com.example.demo.service;
 
+import com.example.demo.model.Parcel;
 
+public interface ParcelService {
 
-// import java.util.List;
-// import com.example.demo.entity.parcelEntity;
-// import org.springframework.web.bind.annotation.RequestBody;
+    Parcel addParcel(Parcel parcel);
 
-
-
-
-// public interface ParcelService {
-//        ParcelEntity saveparcel(@RequestBody ParcelEntity par);
-//        List<ParcelEntity>getparceldata();
-//        String Deleteparcel( Long id);
-//        ParcelEntity parceldata( Long id);
-//        ParcelEntity post(int id,ParcelEntity parcel);
-
-      
-// }
+    Parcel getByTrackingNumber(String trackingNumber);
+}
