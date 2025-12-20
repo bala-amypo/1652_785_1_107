@@ -16,9 +16,6 @@ import java.util.Set;
 @NoArgsConstructor
 public class DamageClaimEntity {
     
-    
-    
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
