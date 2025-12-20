@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 public interface UserService {
        UserEntity saveuser(@RequestBody UserEntity user);
        List<UserEntity>getAlldata();
-       String Deletedata(int d);
-       UserEntity getdata(int d);
+       String Deletedata( );
+       UserEntity getdata( );
        UserEntity update(int id,StudentEntity entity);
 
       
