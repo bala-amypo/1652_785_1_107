@@ -16,13 +16,13 @@ public class AuthController {
     }
 
     @PostMapping("/register")
-    public User register(@RequestBody User user) {
+    public UserEntity register(@RequestBody UserEntity user) {
         return userService.register(user);
     }
 
     @PostMapping("/login")
-    public User login(@RequestBody User request) {
-        // Simple login: find by email only
+    public UserEntity login(@RequestBody UserEntity request) {
+        
         return userService.findByEmail(request.getEmail());
     }
 }
