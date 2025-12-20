@@ -25,15 +25,15 @@ public class AuthController {
         return service.getAlldata();
     }
     @DeleteMapping("/delete/{id}")
-    public String deletevalue(@PathVariable int id){
+    public String deletevalue(@PathVariable Long id){
         return service.Deletedata(id);
     }
     @GetMapping("/find/{id}")
-    public UserEntity finddata(@PathVariable int id){
+    public UserEntity finddata(@PathVariable Long id){
         return service.getdata(id);
     }
     @putMapping("/put/{id}")
-    public UserEntity putdata(@PathVariable int id,@RequestBody UserEntity entity){
+    public UserEntity putdata(@PathVariable Long id,@RequestBody UserEntity entity){
         return service.update(id,entity);
     }
 }

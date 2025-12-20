@@ -3,15 +3,14 @@ package com.example.demo.service;
 
 
 import java.util.List;
-import com.example.demo.service.UserService;
-import com.example.demo.entity.UserEntity;
+import com.example.demo.entity.parcelEntity;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
 
 
 public interface ParcelService {
-       ParcelEntity saveparcel(@RequestBody UserEntity user);
+       ParcelEntity saveparcel(@RequestBody ParcelEntity user);
        List<ParcelEntity>getparceldata();
        String Deleteparcel( Long id);
        ParcelEntity parceldata( Long id);
