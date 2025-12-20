@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@AllArgsConstrutor
+@AllArgsConstructor  
 @NoArgsConstructor
 public class UserEntity {
     @Id
