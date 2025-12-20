@@ -1,9 +1,11 @@
-package com.example.demo.entity;
+package com.example.demo.model;
 
 
 
 
-
+import lombok.Data;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 import jakarta.persistence.*;
 @Entity
