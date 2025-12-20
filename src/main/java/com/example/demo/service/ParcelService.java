@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 public interface ParcelService {
-       ParcelEntity saveparcel(@RequestBody ParcelEntity user);
+       ParcelEntity saveparcel(@RequestBody ParcelEntity par);
        List<ParcelEntity>getparceldata();
        String Deleteparcel( Long id);
        ParcelEntity parceldata( Long id);

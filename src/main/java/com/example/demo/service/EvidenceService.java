@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 public interface EvidenceService {
-       EvidenceEntity saveevidence(@RequestBody Entity user);
-       List<ParcelEntity>getparceldata();
-       String Deleteparcel( Long id);
-       ParcelEntity parceldata( Long id);
-       ParcelEntity post(int id,ParcelEntity parcel);
+       EvidenceEntity saveevidence(@RequestBody EvidenceEntity evi);
+       List<EvidencelEntity>getevidencedata();
+       String Deleteevidence( Long id);
+       ParcelEntity evidencedata( Long id);
+       ParcelEntity postevidence(Long id,EvidenceEntity Evidence);
 
       
 }
