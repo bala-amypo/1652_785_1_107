@@ -2,33 +2,23 @@ package com.example.demo.service.impl;
 
 import com.example.demo.exception.BadRequestException;
 import com.example.demo.exception.ResourceNotFoundException;
-import com.example.demo.model.ClaimRule;
 import com.example.demo.model.DamageClaim;
 import com.example.demo.model.Parcel;
-import com.example.demo.repository.ClaimRuleRepository;
 import com.example.demo.repository.DamageClaimRepository;
 import com.example.demo.repository.ParcelRepository;
 import com.example.demo.service.DamageClaimService;
-import com.example.demo.util.RuleEngineUtil;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Set;
 
 @Service
 public class DamageClaimServiceImpl implements DamageClaimService {
 
     private final ParcelRepository parcelRepository;
     private final DamageClaimRepository claimRepository;
-    private final ClaimRuleRepository ruleRepository;
 
-    
     public DamageClaimServiceImpl(ParcelRepository parcelRepository,
-                                  DamageClaimRepository claimRepository,
-                                  ClaimRuleRepository ruleRepository) {
+                                  DamageClaimRepository claimRepository) {
         this.parcelRepository = parcelRepository;
         this.claimRepository = claimRepository;
-        this.ruleRepository = ruleRepository;
     }
 
     @Override
@@ -49,18 +39,9 @@ public class DamageClaimServiceImpl implements DamageClaimService {
         DamageClaim claim = claimRepository.findById(claimId)
                 .orElseThrow(() -> new ResourceNotFoundException("Claim not found"));
 
-        List<ClaimRule> rules = ruleRepository.findAll();
-
-        double score = RuleEngineUtil.evaluate(claim, rules);
-
-        claim.setScore(score);
-        claim.setAppliedRules(Set.copyOf(rules));
-
-        if (score > 0.9) {
-            claim.setStatus("APPROVED");
-        } else if (score == 0.0) {
-            claim.setStatus("REJECTED");
-        }
+        
+        claim.setScore(0.0); // Default score since no evaluation
+        claim.setStatus("PENDING"); // Default status
 
         return claimRepository.save(claim);
     }
