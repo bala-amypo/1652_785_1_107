@@ -2,7 +2,6 @@ package com.example.demo.controller;
 
 import com.example.demo.model.Evidence;
 import com.example.demo.service.EvidenceService;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,15 +17,13 @@ public class EvidenceController {
     }
 
     @PostMapping("/upload/{claimId}")
-    public ResponseEntity<Evidence> uploadEvidence(@PathVariable Long claimId,
-                                                   @RequestBody Evidence evidence) {
-        Evidence saved = evidenceService.uploadEvidence(claimId, evidence);
-        return ResponseEntity.ok(saved);
+    public Evidence uploadEvidence(@PathVariable Long claimId,
+                                   @RequestBody Evidence evidence) {
+        return evidenceService.uploadEvidence(claimId, evidence);
     }
 
     @GetMapping("/claim/{claimId}")
-    public ResponseEntity<List<Evidence>> getEvidenceForClaim(@PathVariable Long claimId) {
-        List<Evidence> evidenceList = evidenceService.getEvidenceForClaim(claimId);
-        return ResponseEntity.ok(evidenceList);
+    public List<Evidence> getEvidence(@PathVariable Long claimId) {
+        return evidenceService.getEvidenceForClaim(claimId);
     }
 }
