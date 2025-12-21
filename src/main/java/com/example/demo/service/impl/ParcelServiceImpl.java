@@ -12,7 +12,7 @@ public class ParcelServiceImpl implements ParcelService {
 
     private final ParcelRepository parcelRepository;
 
-    // REQUIRED constructor
+    
     public ParcelServiceImpl(ParcelRepository parcelRepository) {
         this.parcelRepository = parcelRepository;
     }
