@@ -21,12 +21,12 @@ public class ParcelServiceImpl implements ParcelService {
     public Parcel addParcel(Parcel parcel) {
 
         if (parcelRepository.existsByTrackingNumber(parcel.getTrackingNumber())) {
-            // message must contain "tracking"
+            
             throw new BadRequestException("tracking already exists");
         }
 
         if (parcel.getWeightKg() == null || parcel.getWeightKg() <= 0) {
-            // message must contain "weight"
+            
             throw new BadRequestException("weight must be greater than zero");
         }
 
@@ -36,7 +36,7 @@ public class ParcelServiceImpl implements ParcelService {
     @Override
     public Parcel getByTrackingNumber(String trackingNumber) {
         return parcelRepository.findByTrackingNumber(trackingNumber)
-                // message must contain "not"
+                
                 .orElseThrow(() -> new ResourceNotFoundException("Parcel not found"));
     }
 }
