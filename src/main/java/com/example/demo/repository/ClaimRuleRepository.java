@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ClaimRuleRepository extends JpaRepository<ClaimRule, Long> {
-    // findAll() is inherited from JpaRepository
 }

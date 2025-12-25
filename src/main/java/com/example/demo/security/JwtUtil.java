@@ -1,15 +1,14 @@
 package com.example.demo.security;
 
-
-import org.springframework.stereotype.Component;
-import java.util.Date;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
+import org.springframework.stereotype.Component;
+import java.util.Date;
 
 @Component
 public class JwtUtil {
-    private String secret = "secretsecretsecretsecretsecretsecretsecretsecret";
+    private String secretKey = "secretsecretsecretsecretsecretsecretsecretsecret";
 
     public String generateToken(Long userId, String email, String role) {
         return Jwts.builder()
@@ -18,8 +17,24 @@ public class JwtUtil {
                 .claim("role", role)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + 1000 * 60 * 60 * 10))
-                .signWith(SignatureAlgorithm.HS256, secret)
+                .signWith(SignatureAlgorithm.HS256, secretKey)
                 .compact();
     }
-    // Implement validateToken as per requirement...
+
+    public String extractEmail(String token) {
+        return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().getSubject();
+    }
+
+    public String extractRole(String token) {
+        return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody().get("role", String.class);
+    }
+
+    public boolean validateToken(String token) {
+        try {
+            Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }
