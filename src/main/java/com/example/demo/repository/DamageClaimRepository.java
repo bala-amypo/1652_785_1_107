@@ -7,8 +7,5 @@ import java.util.List;
 import java.util.Optional;
 
 public interface DamageClaimRepository extends JpaRepository<DamageClaim, Long> {
-
     List<DamageClaim> findByParcel_Id(Long parcelId);
-
-    Optional<DamageClaim> findById(Long claimId);
 }
