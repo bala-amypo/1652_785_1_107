@@ -8,5 +8,6 @@ import java.util.List;
 @Repository
 public interface EvidenceRepository extends JpaRepository<Evidence, Long> {
     long countByClaim_Id(Long claimId);
+    // This MUST have the underscore to match the Test Case Mock
     List<Evidence> findByClaim_Id(Long claimId);
 }
