@@ -18,7 +18,7 @@ public class ClaimRuleServiceImpl implements ClaimRuleService {
 
     @Override
     public ClaimRule addRule(ClaimRule rule) {
-        // Test case checks for ">=" in the exception message
+        
         if (rule.getWeight() == null || rule.getWeight() < 0) {
             throw new BadRequestException("Rule weight must be >= 0");
         }
