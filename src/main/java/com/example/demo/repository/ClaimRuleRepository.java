@@ -3,9 +3,6 @@ package com.example.demo.repository;
 import com.example.demo.model.ClaimRule;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.List;
+ublic interface ClaimRuleRepository extends JpaRepository<ClaimRule, Long> {
 
-public interface ClaimRuleRepository extends JpaRepository<ClaimRule, Long> {
-
-    List<ClaimRule> findAll();
 }
