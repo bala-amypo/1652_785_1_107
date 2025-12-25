@@ -1,33 +1,23 @@
 package com.example.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import java.util.Set;
 import jakarta.persistence.*;
+import lombok.*;
 
 @Entity
+@Table(name = "claim_rules")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class ClaimRule {
-    
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-
     private String ruleName;
-
     private String conditionExpression;
-
     private Double weight;
 
-    @ManyToMany(mappedBy = "appliedRules")
-    private Set<DamageClaim> claims;
-
+    public ClaimRule(String ruleName, String conditionExpression, Double weight) {
+        this.ruleName = ruleName;
+        this.conditionExpression = conditionExpression;
+        this.weight = weight;
+    }
 }

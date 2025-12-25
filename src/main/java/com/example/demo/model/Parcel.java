@@ -1,27 +1,28 @@
 package com.example.demo.model;
 
-
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import jakarta.persistence.*;
+import lombok.*;
 import java.time.LocalDateTime;
 
-
 @Entity
+@Table(name = "parcels")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class Parcel {
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(unique = true)
     private String trackingNumber;
     private String senderName;
     private String receiverName;
     private Double weightKg;
     private LocalDateTime deliveredAt;
+
+    public Parcel(String trackingNumber, String senderName, String receiverName, Double weightKg) {
+        this.trackingNumber = trackingNumber;
+        this.senderName = senderName;
+        this.receiverName = receiverName;
+        this.weightKg = weightKg;
+    }
 }
