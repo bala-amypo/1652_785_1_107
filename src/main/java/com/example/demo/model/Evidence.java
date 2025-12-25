@@ -1,13 +1,10 @@
 package com.example.demo.model;
 
 import jakarta.persistence.*;
-import lombok.*;
 import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "evidence")
-@Data
-@NoArgsConstructor
 public class Evidence {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +16,21 @@ public class Evidence {
 
     private String evidenceType;
     private String fileUrl;
-    private LocalDateTime uploadedAt = LocalDateTime.now(); // For test case 35/55
+    private LocalDateTime uploadedAt;
+
+    public Evidence() { this.uploadedAt = LocalDateTime.now(); }
 
     @PrePersist
-    protected void onUpload() {
-        this.uploadedAt = LocalDateTime.now();
-    }
+    protected void onUpload() { this.uploadedAt = LocalDateTime.now(); }
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
+    public DamageClaim getClaim() { return claim; }
+    public void setClaim(DamageClaim claim) { this.claim = claim; }
+    public String getEvidenceType() { return evidenceType; }
+    public void setEvidenceType(String evidenceType) { this.evidenceType = evidenceType; }
+    public String getFileUrl() { return fileUrl; }
+    public void setFileUrl(String fileUrl) { this.fileUrl = fileUrl; }
+    public LocalDateTime getUploadedAt() { return uploadedAt; }
+    public void setUploadedAt(LocalDateTime uploadedAt) { this.uploadedAt = uploadedAt; }
 }
