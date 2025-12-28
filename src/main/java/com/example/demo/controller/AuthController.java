@@ -24,7 +24,7 @@ public class AuthController {
 
     @PostMapping("/register")
     public ApiResponse register(@RequestBody User user) {
-        // Hash password before saving
+        
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         User saved = userService.register(user);
         return new ApiResponse(true, "User registered successfully", saved);
