@@ -32,7 +32,7 @@ public class EvidenceServiceImpl implements EvidenceService {
     @Override
     public List<Evidence> getEvidenceForClaim(Long claimId) {
         List<Evidence> list = evidenceRepository.findByClaim_Id(claimId);
-        // Return empty list if null to satisfy testEvidenceEmptyList
+    
         return (list != null) ? list : new ArrayList<>();
     }
 }
